@@ -1,0 +1,49 @@
+<div class="navWrap">
+  <nav class="navbar navbar-default centerDiv">
+    <div class="container-fluid group">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <div id="buttonTitle">
+          <button class="dropdown-toggle btn btn-default" type="button" data-toggle="collapse" data-target="#dropmenu" aria-expanded="false" aria-controls="dropmenu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <button data-toggle="tooltip" data-placement="bottom" title="Open filters" class="btn btn-default flyoutTab" id="filterTab" value="flyoutFilter" type="button" ><span class="glyphicon glyphicon-filter" aria-hidden="true"></span><!-- <br><small><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></small> --></button>
+         
+          <h4 class="hidden-xs"></h4>
+          
+        </div> <!-- END buttonTitle -->
+        
+        <div id="fontWrap" class="hidden-xs">
+          <span data-toggle="tooltip" data-placement="bottom" title="Decrease text size" class="glyphicon glyphicon-font smaller" aria-hidden="true"></span><span data-toggle="tooltip" data-placement="bottom" title="Reset text size" class="glyphicon glyphicon-font reset" aria-hidden="true"></span><span data-toggle="tooltip" data-placement="bottom" title="Increase text size" class="glyphicon glyphicon-font larger" aria-hidden="true"></span>
+        </div> <!-- END fontWrap -->
+
+        <div id="mainSearch" class="input-group">
+          <input type="search" id="live-search-box" class="form-control" placeholder="">
+          <div class="input-group-btn">
+            <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Clear search" id="clearSearch" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            
+            <!-- <button class="btn btn-default" id="clearFilter" type="button" data-toggle="tooltip" data-placement="bottom" title="Clear filters"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span><sub><small><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></small></sub></button> -->
+
+            
+
+          
+          </div>
+        </div> <!-- End mainSearch -->
+
+        
+      </div> <!-- END navbar-header -->
+    </div> <!-- /.container-fluid-->
+  </nav>
+</div> <!-- END navWarp -->
+
+<!-- dropdown menu -->
+<div class="collapse group" id="dropmenu">
+  <div class="centerDiv group">
+    <ul class="group" id="navlinks">
+                
+    </ul>
+  </div>
+</div><!-- END dropdown menu -->

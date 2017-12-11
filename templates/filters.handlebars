@@ -1,0 +1,32 @@
+{{#each this}}
+    {{#if include}}
+        {{#if this.radio}}
+            <div id="{{@key}}" class="radioWrap";>
+                <h4 class="filterCollapse capitalize"><small><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></small> {{@key}}</h4>
+                <div class="checkboxCollapse">
+                    {{#each content}}
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="sortRadios" id="{{this}}" value="{{this}}"{{#if @first}} checked="checked"{{/if}}>
+                        <span class="hyphen">{{this}}</span>
+                      </label>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{else}}
+            <div id="{{@key}}" class="checkboxWrap">
+                <h4 class="filterCollapse capitalize"><small><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></small> <span class="hyphen">{{@key}}</span>{{#if shiftSelect}} &nbsp;<span data-toggle="tooltip" data-placement="right" title="Shift + Click to select range" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>{{/if}}</h4>
+                <div class="{{#if cols}}{{cols}} {{/if}}checkboxCollapse">
+                    {{#each content}}
+                    <div class="checkbox">
+                        <label>
+                            <input class="{{#if ../shiftSelect}}shiftSelect {{/if}}chkboxes" type="checkbox" name="{{#if ../other}}{{this}}{{else}}{{@../key}}{{/if}}" value="{{this}}"> {{#if ../hyphen}}<span class="hyphen underscore">{{this}}</span>{{else if ../class}}<span class="{{../class}}">{{this}}</span>{{else}}{{this}}{{/if}}
+                        </label>{{#if ../sort}}&nbsp;<a href="#{{this}}"><small><span class="glyphicon glyphicon-link" aria-hidden="true"></span></small></a>{{/if}}
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+{{/each}}

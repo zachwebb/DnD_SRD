@@ -1,0 +1,273 @@
+{{!-- FIGURE OUT WAY TO ADD BULLETS TO TEXT --}}
+<div class="content col-md-12" name="{{name}}" data-type="{{type}}" data-challenge-rating="{{cr}}" data-source="{{source}}" data-category="{{cr}} {{size}} {{type}} {{#if spells}}spells {{/if}}{{#if legendary}}legendary {{/if}}{{#if lair-actions}}lair-actions {{/if}}{{#if regional-effects}}regional-effects {{/if}}{{#if reaction}}reaction {{/if}}{{source}} {{alignment}}"> 
+
+    <div class="contentSelect">
+        <label>
+            <input class="" type="checkbox" name="content" value="{{name}}"> Select 
+        </label>
+    </div>
+    <h4 class="name"><small><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></small>{{name}}</h4>
+
+    <div class="blockWrap">
+        Source: <strong><span class="hyphen underscore">{{source}}</span></strong>
+        <div class="sizeType introBlock">
+            <p><em>{{size}} {{type}}{{#if subtype}} {{subtype}}{{/if}}, {{alignment}}</em></p>
+        </div>
+        <hr>
+        <div class="AC-HP-SP copyBlock">
+            <p><strong>Armor Class</strong> {{ac}}</p>
+            <p><strong>Hit Points</strong> {{hp}}</p>
+            <p><strong>Speed</strong> {{speed}}</p>
+        </div>
+        <hr>
+        <div class="attributeWrap copyBlock group">
+            <div class="attribute">
+                <p><strong>STR</strong></p>
+                <p class="score">{{str}}</p>
+            </div>
+            <div class="attribute">
+                <p><strong>DEX</strong></p>
+                <p class="score">{{dex}}</p>
+            </div>
+            <div class="attribute">
+                <p><strong>CON</strong></p>
+                <p class="score">{{con}}</p>
+            </div>
+            <div class="attribute">
+                <p><strong>INT</strong></p>
+                <p class="score">{{int}}</p>
+            </div>
+            <div class="attribute">
+                <p><strong>WIS</strong></p>
+                <p class="score">{{wis}}</p>
+            </div>
+            <div class="attribute">
+                <p><strong>CHA</strong></p>
+                <p class="score">{{cha}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="infoWrap copyBlock">
+            {{#if save}}
+                <p><strong>Saving Throws</strong> {{save}}</p>
+            {{/if}}
+            
+        	{{#if vulnerable}}
+                <p><strong>Damage Vulnerabilities</strong> {{vulnerable}}</p>
+            {{/if}}
+
+            {{#if resist}}
+                <p><strong>Damage Resistances</strong> {{resist}}</p>
+            {{/if}}
+
+            {{#if immune}}
+                <p><strong>Damage Immunities</strong> {{immune}}</p>
+            {{/if}}
+
+            {{#if conditionImmune}}
+                <p><strong>Condition Immunities</strong> {{conditionImmune}}</p>
+            {{/if}}
+
+            {{#if skill}}
+                <p><strong>Skills</strong> {{skill}}</p>
+            {{/if}}
+
+            <p><strong>Senses</strong> passive Perception {{passive}}{{#if senses}}, {{senses}}{{/if}}</p>
+            {{#if languages}}
+                <p><strong>Languages</strong> {{languages}}</p>
+            {{/if}}
+                <p><strong>Challenge</strong><span class="challenge-rating"> {{{cr}}}</span></p>
+        </div>
+        
+
+        {{#if trait}}
+        <hr>
+            <div class="trait copyBlock">
+            {{#each trait}}   
+                {{#if text}}
+                    {{#each text}}
+                    
+                    {{#unless this.list}}{{#if @first}}<p><strong><em>{{../name}}.</em></strong> {{{this}}}</p>{{else}}<p>{{{this}}}</p>{{/if}}{{/unless}}
+                    
+                    {{#if this.list}}<ul>{{#each list}}<li class="bullet">{{{this}}}</li>{{/each}}</ul>{{/if}}
+                {{/each}}{{/if}}
+            {{/each}}
+            </div>
+        {{/if}}  
+
+        {{#if spells}}
+        <hr>
+            <div class="copyBlock small">
+                <strong><em>Spells: </em></strong>
+                {{#each spells}}
+                    <span name="{{{this}}}" class="spellName capitalize"><small><span class="glyphicon glyphicon-zoom-in"></span></small> {{{this}}}</span>{{#unless @last}},&nbsp;{{/unless}}
+                {{/each}}
+            </div>
+        {{/if}}
+
+        {{#if action}}
+        <div class="creatureActions copyBlock">    
+            <h3>Actions</h3>
+            {{#each action}}
+                {{#if text}}
+                    {{#each text}}
+                        {{#if @first}}
+                            <p><strong><em>{{../name}}.</em></strong> {{{this}}}</p>
+                            {{else}}
+                            {{#if list}}
+                            <ul>
+                            {{#each list}}
+                                {{#unless this.listBreak}}
+                                    <li class="bullet">{{{this}}}</li>
+                                {{/unless}}
+                                {{#each this.listBreak}}
+                                    <p>{{{this}}}</p>
+                                {{/each}}
+                            {{/each}}
+                            </ul>
+                            {{else if numberList}}
+                            <ol>
+                            {{#each numberList}}
+                                {{#unless this.listBreak}}
+                                <li class="bullet">{{{this}}}</li>
+                                {{/unless}}
+                                {{#each this.listBreak}}
+                                    <p>{{{this}}}</p>
+                                {{/each}}
+                            {{/each}}
+                            </ol>
+                            {{else}}
+                            <p>{{{this}}}</p>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if reaction}}
+        <div class="creatureReactions copyBlock">
+            <h3>Reactions</h3>
+            {{#each reaction}}
+                {{#if text}}
+                {{#each text}}
+                {{#if @first}}
+                <p><strong><em>{{../name}}.</em></strong> {{{this}}}</p>
+                {{else}}
+                <p>{{{this}}}</p>
+                {{/if}}
+                {{/each}}{{/if}}
+            {{/each}}  
+        </div>
+        {{/if}}
+
+        {{#if legendary}}
+        <div class="legendaryActions copyBlock">
+            <h3>Legendary Actions</h3>
+            {{#each legendary}}
+                {{#if text}}
+                {{#each text}}
+                {{#if @first}}
+                <p>{{#if ../name}}<strong><em>{{../name}}.</em></strong> {{/if}}{{{this}}}</p>
+                {{else}}
+                <p>{{{this}}}</p>
+                {{/if}}
+                {{/each}}{{/if}}
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if lair-actions}}
+        <div class="lairActions copyBlock">
+            <h3>Lair Actions</h3>
+            {{#each lair-actions}}
+                {{#if text}}
+                    {{#each text}}
+                        {{#unless this.list}}
+                            <p>{{{this}}}</p>
+                        {{/unless}}
+                        {{#if this.list}}
+                            <ul>
+                                {{#each list}}
+                                    {{#unless this.listBreak}}
+                                        <li class="bullet">{{{this}}}</li>
+                                    {{/unless}}
+                                    {{#each this.listBreak}}
+                                    <p>{{{this}}}</p>
+                                    {{/each}}
+                                {{/each}}
+                                
+                            </ul>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if lair-traits}}
+        <div class="lairTrait copyBlock">
+            <h3>Lair Traits</h3>
+            {{#each lair-traits}}
+                {{#if text}}
+                    {{#each text}}
+                        {{#unless this.list}}
+                            <p>{{{this}}}</p>
+                        {{/unless}}
+                        {{#if this.list}}
+                            <ul>
+                                {{#each list}}
+                                    {{#unless this.listBreak}}
+                                        <li class="bullet">{{{this}}}</li>
+                                    {{/unless}}
+                                    {{#each this.listBreak}}
+                                    <p>{{{this}}}</p>
+                                    {{/each}}
+                                {{/each}}
+                                
+                            </ul>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if regional-effects}}
+        <div class="regionalEffects copyBlock">
+            <h3>Regional Effects</h3>
+            {{#each regional-effects}}
+                {{#if text}}
+                    {{#each text}}
+                        {{#unless this.list}}
+                            <p>{{{this}}}</p>
+                        {{/unless}}
+                        {{#if this.list}}
+                            <ul>
+                                {{#each list}}
+                                    {{#unless this.listBreak}}
+                                        <li class="bullet">{{{this}}}</li>
+                                    {{/unless}}
+                                    {{#each this.listBreak}}
+                                    <p>{{{this}}}</p>
+                                    {{/each}}
+                                {{/each}}
+                                
+                            </ul>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{#if description}}
+        <hr>
+        <div class="description copyBlock">
+            <p>{{description}}</p>
+        </div>
+        {{/if}}
+    </div>
+</div>
+

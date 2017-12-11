@@ -1,0 +1,84 @@
+{
+  "_comments": "nothing now",
+  "futureStuff":{
+    "filterId": "filterDiv",
+    "filterTemplate": "./templates/rulesFilters.handlebars",
+      "name": "filters",
+      "template": "./templates/filterTab.handlebars",
+      "div": "header"
+  },
+  "dice":[
+    "4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "20",
+    "100"
+  ],
+  "components":{
+    "header":  {
+      "name": "header",
+      "template": "./templates/components/header.handlebars",
+      "div": "header"
+    },
+    "footer": {
+      "name": "footer",
+      "template": "./templates/components/footer.handlebars",
+      "div": "footer"
+    },
+    "modal": {
+      "name": "modal",
+      "template": "./templates/components/modal.handlebars",
+      "div": "body"
+    },
+    "filters": {
+      "name": "filters",
+      "template": "./templates/components/filterTab.handlebars",
+      "div": "header"
+    },
+    "diceRoller":{
+      "name": "diceRoller",
+      "template": "./templates/components/diceRoller.handlebars",
+      "div": "header"
+    }
+  },
+  "pages": {
+    "bestiary":
+    {
+      "url": "bestiary.html",
+      "filterTemplate": "./templates/filters.handlebars",
+      "contentTemplate": "./templates/bestiary.handlebars",
+      "filterId": "#filterDiv",
+      "contentId": "#contentWrap",
+      "dataUrl": "./data/bestiarySRD.json",
+      "results": true,
+      "filters": true,
+      "alpha": true
+    },
+    "spells":
+    {
+      "url": "spells.html",
+      "filterTemplate": "./templates/filters.handlebars",
+      "contentTemplate": "./templates/spells.handlebars",
+      "filterId": "#filterDiv",
+      "contentId": "#contentWrap",
+      "dataUrl": "./data/spellSRD.json",
+      "results": true,
+      "filters": true,
+      "alpha": true
+    },
+    "items":
+    {
+      "url": "items.html",
+      "filterTemplate": "./templates/filters.handlebars",
+      "contentTemplate": "./templates/items.handlebars",
+      "filterId": "#filterDiv",
+      "contentId": "#contentWrap",
+      "dataUrl": "./data/itemSRD.json",
+      "results": true,
+      "filters": true,
+      "alpha": true
+    }
+  }
+}

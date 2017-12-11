@@ -1,0 +1,36 @@
+<div class="content col-md-12" name="{{name}}" data-rarity="{{rarity}}" data-source="{{source}}" data-type="{{type}}" data-category="{{type}} {{property}}{{#if consumable}} consumable{{/if}}{{#if curse}} curse{{/if}}{{#if rarity}} {{rarity}}{{/if}}{{#if attunement}} attunement{{/if}}{{#if magic}} magic{{/if}}{{#if mundane}} mundane{{/if}}{{#if weapon}} weapon{{/if}}{{#if armor}} armor{{/if}} {{source}}">
+    <div class="contentSelect">
+        <label>
+            <input class="shiftSelect" type="checkbox" name="content" value="{{name}}"> Select 
+        </label>
+    </div>
+    <h4 class="name"><small><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></small>{{name}}</h4>
+    <div class="blockWrap">
+
+        <div class="itemInfo introBlock">
+         <em><strong>{{#if magic}}Magical {{/if}} <span class="hyphen capitalize">{{type}}</span> {{#if weapon}}Weapon{{/if}}</strong>{{#if rarity}} - <span class="hyphen capitalize">{{rarity}}</span>{{/if}}</em>
+        </div>
+        <hr>
+        <div class="infoWrap copyBlock">
+            {{#if source}}<p><strong>Source:</strong> <em><span class="hyphen underscore">{{source}}</span></em></p>{{/if}}
+            {{#if range}}<p><strong>Range:</strong> {{range}}</p>{{/if}}
+            {{#if damageType}}<p><strong>Damage type:</strong> <span class="capitalize">{{damageType}}</span></p>{{/if}}
+            {{#if dmg1}}<p><strong>Damage dice:</strong> {{dmg1}}{{#if dmg2}} ({{dmg2}}){{/if}}</p>{{/if}}
+            {{#if value}}<p><strong>Cost:</strong> <em>{{value}}</em></p>{{/if}}
+            {{#if weight}}<p><strong>Weight:</strong> <em>{{weight}}</em></p>{{/if}}
+            {{#if ac}}<p><strong>AC:</strong> <em>{{ac}}</em></p>{{/if}}
+            {{#if strength}}<p><strong>Minimum Strength:</strong> <em>{{strength}}</em></p>{{/if}}
+            {{#if stealth}}<p><em>Disadvantage on stealth checks.</em></p>{{/if}}
+            {{#if property}}<p><strong>Properties:</strong> <em><span class="commaAdd capitalize">{{property}}</span></em></p>{{/if}}
+            
+            {{#if attunement}}<p><em><strong>This item requires attunement</strong></em></p>{{/if}}
+            {{#if consumable}}<p>This item is <em>consumable</em></p>{{/if}}
+            {{#if class}}<p><strong>Classes:</strong> <span class="capitalize commaAdd">{{class}}</span></p>{{/if}}
+        </div>
+        <hr>
+        <div class="description copyBlock">
+            {{#if text}}{{#each text}}{{#unless this.list}}<p>{{{this}}}</p>{{/unless}}{{#if this.list}}<ul>{{#each list}}<li class="bullet">{{this}}</li>{{/each}}</ul>{{/if}}{{/each}}{{else}}<p>See <span class="hyphen underscore">{{source}}</span>.</p>{{/if}}
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,51 @@
+<div id="diceCover" class="cover">
+	<div class="container-fluid" id="diceModal">
+		<div id="modalHeaderDice" class="group">  
+			<button type="button" class="modalClose close" data-dismiss="modal" aria-label="Close">  
+				<span class="glyphicon glyphicon-remove" aria-hidden="true">  
+				</span>  
+			</button>  
+		</div> 
+		<div id="modalContentDice" class="row">
+			<div id="rollerWrap">
+			  	<table class="table table-hover">
+	                <thead>
+	                    <tr> 
+	                        <th>Dice</th>
+	                        <th>Number</th>
+	                        <th>Modifier</th>
+	                        <th> </th>
+	                        <th>Result</th>
+	                    </tr> 
+	                </thead>
+	                <tbody id="eachDice"> 
+	                    
+	                </tbody> 
+	            </table>
+			</div>
+			<div id="rollHistory">
+				<table class="table">
+	                <thead>
+	                    <tr> 
+	                        <th>History</th>
+
+	                    </tr> 
+	                </thead>
+	                <tbody> 
+	                    <tr>
+	                    	<td>
+	                    		<textarea name="rollResults" class="form-control" id="rollResults" data-original-value=" " rows="16"></textarea>
+	                    		<button type="button" class="btn btn-default resetDice">
+						            <span>Reset</span>
+						        </button>
+	                    	</td>
+	                    </tr>
+	                </tbody> 
+	                
+	            </table>
+				
+                
+			</div>
+		</div>  
+	</div>  
+</div>

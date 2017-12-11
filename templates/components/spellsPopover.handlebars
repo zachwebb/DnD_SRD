@@ -1,0 +1,75 @@
+<div class="spellPopover col-md-12" name="{{name}}">
+    <h5 class="name">{{name}}</h5>
+    <div>
+        <span class="levelSchool capitalize"><strong><span>{{#if cantrip}}{{school}} {{level}}{{else}}Level {{level}} {{school}}{{/if}}</span>{{#if ritual}} (ritual){{/if}}</strong></span>
+
+        <div class="spellInfo introBlock">
+            <p><span><strong>Classes:</strong> <em>{{classes}}</em></span></p>
+        </div>
+        <hr>
+        <div class="infoWrap copyBlock">
+            <!-- {{#if source}}<p><strong>Source:</strong> <em><span class="hyphen underscore">{{source}}</span></em></p>{{/if}} -->
+            <p><strong>Range:</strong> {{range}}</p>
+            <p><strong>Casting time:</strong> <span class="hyphen underscore">{{time}}{{time2}}</span></p>
+            <p><strong>Components:</strong> {{components}}</p>
+            <p><strong>Duration:</strong> {{#if concentration}}Concentration, {{/if}}{{duration}}</p>
+        </div>
+        <hr>
+        <div class="description copyBlock">
+            {{#if text}}
+            {{#each text}}
+                {{#if list}}
+                    <ul>
+                    {{#each list}}
+                        {{#unless this.listBreak}}
+                            <li class="bullet">{{{this}}}</li>
+                        {{/unless}}
+                        {{#each this.listBreak}}
+                            <p>{{{this}}}</p>
+                        {{/each}}
+                    {{/each}}
+                    </ul>
+                    {{else if numberList}}
+                    <ol>
+                    {{#each numberList}}
+                        {{#unless this.listBreak}}
+                        <li class="bullet">{{{this}}}</li>
+                        {{/unless}}
+                        {{#each this.listBreak}}
+                            <p>{{{this}}}</p>
+                        {{/each}}
+                    {{/each}}
+                    </ol>
+                    {{else if table}}
+                    <table class="spellTable">
+                        {{#each table}}
+                        {{#if columns}}
+                            <thead>
+                            {{#each columns}}
+                            <th>
+                                {{{this}}}
+                            </th>
+                            {{/each}}
+                            </thead>
+                        {{/if}}
+                        
+                        {{#if row}}
+                            <tr>
+                            {{#each row}}
+                            <td>
+                                {{{this}}}
+                            </td>
+                            {{/each}}
+                            </tr>
+                        {{/if}}
+                        {{/each}}
+                    </table>
+                    {{else}}
+                    <p>{{{this}}}</p>
+                    {{/if}}
+            {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</div>
+
